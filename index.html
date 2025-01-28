@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vidrarias!</title>
+        <link href="index.css" rel="stylesheet">
+        <link href="ícones/erlenmayer.png" rel="icon">
+    </head>
+    <!--Construção da tela inicial-->
+    <body><div id="fullscreen">
+    <!--Menu--><div id="menu">
+        <center>
+        <div style="width: 50vw; font-family: textoTitulo;">
+            <center>
+            <img src="imagensVidrarias/balaodedestilacao.png" alt='balaodedestilacao' title="Balão de destilação" id="imginicial">
+            <br>
+            <button id="botaojogar" onclick="jogar(),somdebotaopadrão()"> Jogar! </button>
+            <br>
+            <button id="botaocreditos"><a href="#linkinternoparaoscreditos" style="text-decoration: none;" onclick="somdebotaopadrão(), somdebotaopadrão()">Créditos e arquivos</a></button>
+            <div style="height: 100px;margin-top: 300px;" id="linkinternoparaoscreditos"></div>
+
+            <!--Início dos créditos-->
+            <button class='titulodoscreditos'>Imagens das vidrarias</button>
+            <p class="description">Todas as imagens das vidrarias junto aos seus nomes foram retirados de um PDF proprietário da <a href='https://www.univap.br/univap/' target="_blank" class="aumentar">www.univap.br/univap/</a></p>
+            <h2><a class='aumentar' href="https://www1.univap.br/spilling/FQE1/Vidraria_basica.pdf" target="_blank">Download do PDF</a></h2>
+            <h2><a class='aumentar' href='arquivos/Vidraria_basica.pdf' download target="_blank">Link alternativo para o PDF</a></h2>
+            <br>
+            <br>
+            <br>
+            <button class='titulodoscreditos'>Ícones</button>
+            <p class="description">Todos os ícones foram retirados de <a class='aumentar' href="https://www.freepik.com" target="_blank">www.freepik.com</a>, com reconhecimento aos autores:</p>
+            <h2>Miftahul Madani</h2>
+            <h2>Roundicons</h2>
+            <h2>Pixel perfect</h2>
+            <h2>FreePik</h2>
+            <h2>Macrovector</h2>
+            <br>
+            <br>
+            <br>
+            <button class='titulodoscreditos'>Música</button>
+            <p class="description">Todos os efeitos sonoros e a música do jogo foram feitos pelo DAW online da <a class='aumentar' href='https://www.bandlab.com/' target="_blank">www.bandlab.com</a></p>
+            <h2><a class='aumentar' href='sons/musica-quimica.mp3'>Download da música</li></a></h2>
+            <br>
+            <br>
+            <br>
+            <button class='titulodoscreditos'>Sites de desenvolvimento Web</button>
+            <p class="description">Esses foram os sites que me auxiliaram na criação deste site:</p>
+            <br>
+            </center>
+        </div>
+
+        <div style="display: grid; grid: auto/ 15vw 15vw 15vw 15vw 15vw; margin-bottom: 200px;width: 75vw;">
+            <a class='aumentarsiteurl' href='https://developer.mozilla.org/pt-BR/' target='_blank'>
+                <div id="containerimagenssites"> 
+                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKv3YhvtA35R4QoWjhTKbMvP6ZdxcsdnoeaQ&usqp=CAU' id="imagemsites">
+                <h3>MDN Web Docs</h3>
+            </div></a> 
+
+            <a class='aumentarsiteurl' href='https://www.w3schools.com/' target='_blank'>
+            <div id="containerimagenssites">    
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/W3Schools_logo.svg/2175px-W3Schools_logo.svg.png'  id="imagemsites">
+                <h3>W3Schools</h3>
+            </div></a>
+
+            <a class='aumentarsiteurl' href='https://www.freecodecamp.org/' target='_blank'>
+            <div id="containerimagenssites"> 
+                <img src='https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/freecodecamp-512.png'  id="imagemsites">
+                <h3>FreeCodeCamp</h3>
+            </div></a>
+
+            <a class='aumentarsiteurl' href='https://horadecodar.com.br/' target='_blank'>
+            <div id="containerimagenssites"> 
+                <img src='https://img-c.udemycdn.com/user/200_H/224646276_6ee6.jpg'  id="imagemsites">
+                <h3>Hora de codar</h3>
+            </div></a>
+
+            <a class='aumentarsiteurl' href='https://es.stackoverflow.com/' target='_blank'>
+                <div id="containerimagenssites"> 
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Stack_Overflow_icon.svg/768px-Stack_Overflow_icon.svg.png'  id="imagemsites">
+                    <h3>Stack overflow</h3>
+                </div></a>
+        </div>
+        <h4 style="margin-bottom:20vh;">Criado por Joseph Tonete</h4>
+    </center>
+    <!--Menu--></div>
+    <!--Jogo--><div id="jogo" style="display: none;">
+    <center>
+        <div id="header">
+            <div>
+                <button class="botaoredondo" id="botaovoltar" onclick="voltarparatelainicial(), somdebotaopadrão()" title="Voltar para a tela inicial"></button>
+                <button class="botaoredondo" id="botaorecomecar" onclick="recomecar(), somdebotaopadrão()" title="Recomeçar a fase"></button>
+                <button class="botaonaoredondo" id="botaohardcore" onclick="ativardesativarhardcore(), somdebotaopadrão()" title="Ativar ou desativar o modo difícil">Fácil</button>
+            </div>
+            <div><p id="certas">Certas: 0</p></div>
+            <div><p id="contagem">0/52</p></div>
+            <div><p id="erradas">Erradas: 0</p></div>
+            <div>
+                <button class='botaoredondo' id="botaoefeitos" onclick="ativardesativarefeitos(), somdebotaopadrão()" title="Silenciar os efeitos"></button>
+                <button class='botaoredondo' id="botaomusica" onclick="ativardesativarmusica(), somdebotaopadrão()" title="Silenciar a música"></button>
+            </div>
+        </div>
+        <div id="questões">
+            <div id='capsulaImagem'>
+                <img id='imgjogo'>
+            </div><br>
+            <div id="questaoportexto" style="display: none; margin-top: -100px;">
+                <input id="oinput">
+                <div id="respostacerta" style="display: none; grid:auto/ auto auto;">
+                    <div>
+                        <img id="imagemcerta">
+                    </div>
+                    <div>
+                        <div class="textocerto">
+                        <p>O nome certo era:</p>
+                        <p id="textocerto"></p>
+                        <p id="textoerrado"></p>
+                    </div></div>
+                </div>
+            </div>
+            <div id="questaoporalternativa">
+                <button class="alternativas" onclick="verify('botao1')" id="botao1">1</button>
+                <button class="alternativas" onclick="verify('botao2')" id="botao2">2</button><br>
+                <button class="alternativas" onclick="verify('botao3')" id="botao3">3</button>
+                <button class="alternativas" onclick="verify('botao4')" id="botao4">4</button>
+            </div>    
+        </div>
+        <!--Tela final--><div id="telafinal">
+            <div id="telafinal0" class="telasfinais">
+                <h1 style="margin: 0px">...<br>Sério?</h1><br>
+            </div>
+            <div id="telafinal1" class="telasfinais">
+                <h1 style="margin: 0px">Parabéns!</h1><br>
+                <img style='width: 400px;' src="arquivos/gifs-de-quimica-5.gif">
+                <h1>Nem tentou!</h1>
+            </div>
+            <div id="telafinal2" class="telasfinais">
+                <h1 style="margin: 0px">Uau!<br>Quase um químico!</h1><br>
+                <img style='width: 400px;' src="arquivos/gifs-de-quimica-31.gif">
+            </div>
+            <div id="telafinal3" class="telasfinais">
+                <h1 style="margin: 0px">Deus da química?</h1><br>
+                <img style='width: 400px;' src="arquivos/9fceb369b925b8a0194e775320041ccd.gif">
+                <h4>Acertou todas?</h4>
+            </div>
+            <div id="telafinal4" class="telasfinais">
+                <h1 style="margin: 0px">O próprio Walter White!</h1><br>
+                <img style='width: 400px;' src="arquivos/6EX.gif">
+                <h1>Nada há mais para você aqui agora</h1>
+                <h6>Ou tem?</h6>
+            </div>
+            <div id="telafinal5" class="telasfinais">
+                <h1 style="margin: 0px">Dmitri Mendeleev te daria os parabéns</h1><br>
+                <img style='width: 400px;' src="arquivos/Mendeleev.webp">
+                <h1>se estivesse vivo</h1>
+                <h1>O fim</h1>
+            </div>
+        <!--Tela final--></div>
+    </center>
+    <!--/Jogo--></div>
+    </div>
+    <!--Fim da tela inicial-->
+    <script src="index.js"></script></body>
+</html>
